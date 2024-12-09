@@ -11,7 +11,7 @@ load_dotenv()
 # Get OpenAI API key from environment variable
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-app = FastAPI()
+app = FastAPI(title="React FastAPI AI App Backend")
 
 # Configure CORS
 app.add_middleware(
@@ -28,7 +28,7 @@ class IdeaRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello, World!"}
+    return {"message": "Welcome to React FastAPI AI App Backend"}
 
 @app.post("/process-idea/")
 async def process_idea(request: IdeaRequest):
